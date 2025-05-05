@@ -7,7 +7,11 @@ export default function ProfileScreen() {
   const router = useRouter();
 
   const handleAddProperty = () => {
-    router.push('/property/new');
+    router.push('/property/tutorial');
+  };
+
+  const handleMyProperties = () => {
+    router.push('/property/my-properties');
   };
 
   return (
@@ -49,27 +53,13 @@ export default function ProfileScreen() {
                 <Text style={styles.addPropertySubtext}>Comienza a vender o alquilar tu propiedad</Text>
               </View>
             </Pressable>
-            <View style={styles.propertyStatsCard}>
-              <View style={styles.statRow}>
-                <View style={styles.propertyStatItem}>
-                  <Home size={24} color="#0A84FF" />
-                  <Text style={styles.statNumber}>0</Text>
-                  <Text style={styles.statLabel}>Propiedades</Text>
-                </View>
-                <View style={styles.propertyStatItem}>
-                  <Clock size={24} color="#0A84FF" />
-                  <Text style={styles.statNumber}>0</Text>
-                  <Text style={styles.statLabel}>Visitas</Text>
-                </View>
-              </View>
-            </View>
           </View>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Mi Cuenta</Text>
           <View style={styles.menuCard}>
-            <Pressable style={styles.menuItem}>
+            <Pressable style={styles.menuItem} onPress={handleMyProperties}>
               <Building size={22} color="#0A84FF" />
               <Text style={styles.menuItemText}>Mis Propiedades</Text>
             </Pressable>
@@ -214,6 +204,33 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   addPropertySubtext: {
+    fontFamily: 'Inter-Regular',
+    fontSize: 14,
+    color: '#8E8E93',
+    textAlign: 'center',
+  },
+  myPropertiesCard: {
+    backgroundColor: 'white',
+    borderRadius: 12,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  myPropertiesContent: {
+    alignItems: 'center',
+    padding: 20,
+  },
+  myPropertiesText: {
+    fontFamily: 'Poppins-SemiBold',
+    fontSize: 16,
+    color: '#333333',
+    marginTop: 12,
+    marginBottom: 4,
+  },
+  myPropertiesSubtext: {
     fontFamily: 'Inter-Regular',
     fontSize: 14,
     color: '#8E8E93',
